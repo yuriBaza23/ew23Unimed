@@ -1,0 +1,13 @@
+# Guarda todas as dependências do projeto
+/node_modules
+
+# Arquivos de variáveis de ambiente
+.env
+.env.local
+
+# locks
+package-lock.json
+yarn.lock
+
+# Arquivos de build
+/dist
