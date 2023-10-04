@@ -11,21 +11,23 @@ datasource db {
 }
 
 model admin {
-  name @id @db.Uuid
+  name String @id @db.Uuid
   password String @db.VarChar(255)
 }
 
 model service {
-  id @id @db.Uuid
+  id String @id @db.Uuid
   code String @db.VarChar(255)
-  date Date default(now())
+  date DateTime @default(now())
   professional String @db.VarChar(255)
   description String @db.VarChar(255)
+  clienteId String @db.Uuid
   cost String @db.VarChar(255)
+  cliente cliente @relation(fields: [clienteId], references: [id])
 }
 
 model cliente {
-  id @id @db.Uuid
+  id String @id @db.Uuid
   city String @db.VarChar(255)
   sex String @db.VarChar(255)
   age Int
