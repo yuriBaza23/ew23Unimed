@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express"
 import { resolverController } from "../adapters/resolverController";
-import { CreateAdminController } from "./controllers/CreateAdmin.controller";
+import { CreateAdminController } from "./controllers/CreateAdminController";
 import { HashRepository } from "../repositories/HashRepository";
 import { AdminRepository } from "../repositories/AdminRepository";
 
