@@ -10,3 +10,12 @@ export interface ICreateAdminRequest extends IAdmin {
 export interface ICreateAdminResponse extends IAdmin { 
 
 }
+
+export interface IUpdateAdminRequest extends IAdmin {
+    confirmPassword: string;
+    oldPassword: string;
+}
+
+export interface IUpdateAdminResponse extends IAdmin {
+    
+}

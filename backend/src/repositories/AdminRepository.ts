@@ -20,4 +20,20 @@ export class AdminRepository implements IAdminRepository {
 
         return result;
     }
+
+    async update(input: IAdmin): Promise<void> {
+        let name = input.name;
+        let result = await prisma.admin.findUnique({
+            where: { name }
+        })
+
+        if(!result) throw new Error('This admin does not exists');
+
+        await prisma.adimin.update({
+            where: { name },
+            data: {
+                password: input.password
+            }
+        })
+    }
 }
