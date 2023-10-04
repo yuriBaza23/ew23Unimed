@@ -16,8 +16,26 @@ model admin {
 }
 
 model service {
-  code @id @db.Uuid
+  id @id @db.Uuid
+  code String @db.VarChar(255)
   date Date default(now())
   professional String @db.VarChar(255)
   description String @db.VarChar(255)
+  cost String @db.VarChar(255)
+}
+
+model cliente {
+  id @id @db.Uuid
+  city String @db.VarChar(255)
+  sex String @db.VarChar(255)
+  age Int
+  peopleWhoLivesWith Int
+  perCapitaIncome String @db.VarChar(255)
+  schooling String @db.VarChar(255)
+  alcoholFrequence String @db.VarChar(255)
+  smokingFrequence String @db.VarChar(255)
+  workoutFrequence String @db.VarChar(255)
+  historicOfCancer String @db.VarChar(255)
+  historicOfDiabetes String @db.VarChar(255)
+  services service[]
 }

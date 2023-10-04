@@ -7,7 +7,7 @@ let prisma = new PrismaClient();
 export class AdminRepository implements IAdminRepository {
     async insert(input: IAdmin): Promise<void> {
         await prisma.admin.create({
-            data: { input }
+            data: { ...input }
         })
     }
 
