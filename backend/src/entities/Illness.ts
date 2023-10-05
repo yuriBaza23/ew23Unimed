@@ -10,18 +10,16 @@ export class Illness {
     private _cost?: string;
     private _averageAge?: string;
     private _womenPercentage?: string;
-    private _diseasedClients?: IClient[];
-    private _illnessMetrics?: IMetrics[];
+    private _metrics?: IMetrics;
 
     private constructor(props: IIllness) {
         this._id = props.id || uuid();
         this._name = props.name;
-        this._illnessMetrics = props.illnessMetrics;
-        this._percentege = props.percentege
-        this._cost = props.cost
-        this._averageAge = props.averageAge
-        this._womenPercentage = props.womenPercentage
-        this._diseasedClients = props.diseasedClients
+        this._percentege = props.percentege;
+        this._cost = props.cost;
+        this._metrics = props.metrics;
+        this._averageAge = props.averageAge;
+        this._womenPercentage = props.womenPercentage;
     }
 
     static create(props: IIllness): Illness {
@@ -32,12 +30,11 @@ export class Illness {
         return {
             id: this._id,
             name: this._name,
-            illnessMetrics: this._illnessMetrics,
             percentege: this._percentege,
             cost: this._cost,
+            metrics: this._metrics,
             averageAge: this._averageAge,
             womenPercentage: this._womenPercentage,
-            diseasedClients: this._diseasedClients
         }
     }
 }
