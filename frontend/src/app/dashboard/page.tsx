@@ -1,18 +1,19 @@
 import MainAccordion from "@/components/dashboard/Accordion";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Illness } from "@/utils/types";
 
 export default function Dashboard() {
   const illnesses = [
-    "Renal crônica",
-    "Diabetes",
-    "Dpoc",
-    "Obesidade",
-    "Psquiatricas",
-    "Cerebrovascular",
-    "Hipertensão",
-    "Cardiovasculares",
-    "Neoplasias",
-  ];
+    { name: "Renal crônica" },
+    { name: "Diabetes" },
+    { name: "Dpoc" },
+    { name: "Obesidade" },
+    { name: "Psquiatricas" },
+    { name: "Cerebrovascular" },
+    { name: "Hipertensão" },
+    { name: "Cardiovasculares" },
+    { name: "Neoplasias" },
+  ] as Illness[];
 
   return (
     <div className="w-full flex flex-col bg-white gap-1">
@@ -22,14 +23,7 @@ export default function Dashboard() {
       <ScrollArea className="h-full bg-gray-200">
         <div className="w-full  gap-10 p-8 flex flex-col">
           {illnesses.map((illness, index) => (
-            <MainAccordion
-              key={index}
-              illness={{
-                description: "",
-                localPercentage: 20,
-                name: illness,
-              }}
-            />
+            <MainAccordion key={index} illness={illness} />
           ))}
         </div>
       </ScrollArea>
