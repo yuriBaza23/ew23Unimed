@@ -26,9 +26,11 @@ import useUsers from "@/context/useUsers";
 
 type MainAccordionProps = {
   illness: Illness;
+  num: number;
+  cost: number;
 };
 
-const MainAccordion = ({ illness }: MainAccordionProps) => {
+const MainAccordion = ({ illness, num , cost}: MainAccordionProps) => {
   const [range, setRange] = useState<DateRange | undefined>();
   const [hasCalendar, setHasCalendar] = useState(false);
   const [city, setCity] = useState("");
@@ -68,16 +70,19 @@ const MainAccordion = ({ illness }: MainAccordionProps) => {
     red: false,
   });
 
-
   return (
     <Accordion
       type="single"
       collapsible
-      className="border-gray-400 border-l-2 border-b-2 rounded-sm px-4"
+      className="border-[#1F4D4B] border-l-2 border-b-2 rounded-sm px-4"
     >
       <AccordionItem value="item-1">
         <AccordionTrigger className="w-full flex text-lg">
-          {`${illness.name} - ${illness.percentege ? illness.percentege : 0}% de beneficiários locais`}
+          {`${illness.name} - ${
+            illness.percentege
+              ? illness.percentege
+              : num
+          }% de beneficiários locais`}
         </AccordionTrigger>
         <AccordionContent className="">
           <div>
@@ -90,7 +95,7 @@ const MainAccordion = ({ illness }: MainAccordionProps) => {
                   />
                   <div>
                     <h1 className="text-lg ">
-                      Valor estimado de custos: teste
+                      Valor estimado de custos: R${cost},00
                     </h1>
                   </div>
                 </div>
@@ -137,46 +142,46 @@ const MainAccordion = ({ illness }: MainAccordionProps) => {
               </div>
             </div>
             <div className="flex p-4 bg-white w-fit gap-2 mt-10 rounded">
-              <h1>Fitros de Risco:</h1>
+              {/* <h1>Fitros de Risco:</h1> */}
               <div className="flex gap-10 items-center">
                 <div className="flex gap-2">
-                  <Checkbox
+                  {/* <Checkbox
                     id="< 55"
                     onCheckedChange={() => {
                       setFilters({ ...filters, green: !filters.green });
                     }}
                     checked={filters.green}
-                  />
+                  /> */}
                   <Label htmlFor="< 55">
-                    Risco baixo{" "}
+                    Baixo Risco{" "}
                     <span className="bg-green-400 rounded-full">{"(<55)"}</span>
                   </Label>
                 </div>
                 <div className="flex gap-2">
-                  <Checkbox
+                  {/* <Checkbox
                     id="< 95"
                     onCheckedChange={() => {
                       setFilters({ ...filters, yellow: !filters.yellow });
                     }}
                     checked={filters.yellow}
-                  />
+                  /> */}
                   <Label htmlFor="< 95">
-                    Risco moderado{" "}
+                    Estado de observação{" "}
                     <span className="bg-yellow-400 rounded-full">
                       {"(<95)"}
                     </span>
                   </Label>
                 </div>
                 <div className="flex gap-2">
-                  <Checkbox
+                  {/* <Checkbox
                     id="< 100>"
                     onCheckedChange={() => {
                       setFilters({ ...filters, red: !filters.red });
                     }}
                     checked={filters.red}
-                  />
+                  /> */}
                   <Label htmlFor="< 100>">
-                    Risco alto{" "}
+                    Alto Risco
                     <span className="bg-red-400 rounded-full">{"(<100)"}</span>
                   </Label>
                 </div>

@@ -75,11 +75,11 @@ export type Service = {
 
 export const selectColor = (percentage: number) => {
   if (percentage < 55) {
-    return "bg-green-500";
+    return "bg-green-400";
   } else if (percentage < 95) {
-    return "bg-yellow-400";
+    return "bg-yellow-300";
   } else {
-    return "bg-red-500";
+    return "bg-red-400";
   }
 };
 
@@ -381,11 +381,11 @@ export const users = [
 export const diagnostics = [
   {
     id: "1c736fd4-6156-4dcc-b1c1-5282df499475",
-    patientId: "4264b92a-a74f-4a50-b335-0164ced6b9c6",
+    patientId: "fb3ef933-6595-497f-a6e1-d97b00c31dd6",
     addressId: "1",
     illnessId: "d7429b27-aa96-4f35-b842-58d6e149c69a",
     serviceId: "183639",
-    service: "Serviço 1",
+    service: "Consulta em consultório (no horário normal ou preestabelecido)",
     dateOfService: "2023-10-05T00:00:00.000Z" as any,
     porcentage: [
       {
@@ -408,11 +408,11 @@ export const diagnostics = [
   },
   {
     id: "1c736fd4-6156-4dcc-b1c1-5282df499475",
-    patientId: "4264b92a-a74f-4a50-b335-0164ced6b9c6",
+    patientId: "fb3ef933-6595-497f-a6e1-d97b00c31dd6",
     addressId: "1",
     illnessId: "9723efa0-2ecf-4547-ab0a-636df023de0a",
     serviceId: "183639",
-    service: "Serviço 2",
+    service: "Hemograma com contagem de plaquetas ou frações (eritrograma, leucograma, plaquetas)",
     dateOfService: "2023-10-05T00:00:00.000Z",
     porcentage: [
       {
@@ -435,11 +435,11 @@ export const diagnostics = [
   },
   {
     id: "1c736fd4-6156-4dcc-b1c1-5282df499475",
-    patientId: "4264b92a-a74f-4a50-b335-0164ced6b9c6",
+    patientId: "fb3ef933-6595-497f-a6e1-d97b00c31dd6",
     addressId: "2",
     illnessId: "f8148b10-14d2-4a2b-8560-64f0a22fa8cb",
     serviceId: "183639",
-    service: "Serviço 3",
+    service: "Vitamina B12 - pesquisa e/ou dosagem",
     dateOfService: "2023-10-05T00:00:00.000Z",
     porcentage: [
       {
@@ -460,4 +460,361 @@ export const diagnostics = [
     ],
     updatedAt: "2023-10-05T15:00:36.591Z",
   },
+
+  {
+    id: "1c736fd4-6156-4dcc-b1c1-5282df499475",
+    patientId: "72622e4b-7dd7-4203-be50-244fb8e65c06",
+    addressId: "1",
+    illnessId: "d7429b27-aa96-4f35-b842-58d6e149c69a",
+    serviceId: "183639",
+    service: "Consulta em consultório (no horário normal ou preestabelecido)",
+    dateOfService: "2023-10-05T00:00:00.000Z" as any,
+    porcentage: [
+      {
+        id: "d7429b27-aa96-4f35-b842-58d6e149c69a",
+        name: "Neoplasias",
+        value: 70,
+      },
+      {
+        id: "9723efa0-2ecf-4547-ab0a-636df023de0a",
+        name: "Diabetes",
+        value: 98,
+      },
+      {
+        id: "f8148b10-14d2-4a2b-8560-64f0a22fa8cb",
+        name: "Renal cronica",
+        value: 15,
+      },
+    ],
+    updatedAt: "2023-10-05T15:00:36.591Z" as any,
+  },
+  {
+    id: "1c736fd4-6156-4dcc-b1c1-5282df499475",
+    patientId: "72622e4b-7dd7-4203-be50-244fb8e65c06",
+    addressId: "1",
+    illnessId: "9723efa0-2ecf-4547-ab0a-636df023de0a",
+    serviceId: "183639",
+    service: "Hemograma com contagem de plaquetas ou frações (eritrograma, leucograma, plaquetas)",
+    dateOfService: "2023-10-05T00:00:00.000Z",
+    porcentage: [
+      {
+        id: "d7429b27-aa96-4f35-b842-58d6e149c69a",
+        name: "Neoplasias",
+        value: 10,
+      },
+      {
+        id: "9723efa0-2ecf-4547-ab0a-636df023de0a",
+        name: "Diabetes",
+        value: 70,
+      },
+      {
+        id: "f8148b10-14d2-4a2b-8560-64f0a22fa8cb",
+        name: "Renal cronica",
+        value: 97,
+      },
+    ],
+    updatedAt: "2023-10-05T15:00:36.591Z",
+  },
+  {
+    id: "1c736fd4-6156-4dcc-b1c1-5282df499475",
+    patientId: "72622e4b-7dd7-4203-be50-244fb8e65c06",
+    addressId: "2",
+    illnessId: "f8148b10-14d2-4a2b-8560-64f0a22fa8cb",
+    serviceId: "183639",
+    service: "Vitamina B12 - pesquisa e/ou dosagem",
+    dateOfService: "2023-10-05T00:00:00.000Z",
+    porcentage: [
+      {
+        id: "d7429b27-aa96-4f35-b842-58d6e149c69a",
+        name: "Neoplasias",
+        value: 98,
+      },
+      {
+        id: "9723efa0-2ecf-4547-ab0a-636df023de0a",
+        name: "Diabetes",
+        value: 70,
+      },
+      {
+        id: "f8148b10-14d2-4a2b-8560-64f0a22fa8cb",
+        name: "Renal cronica",
+        value: 10,
+      },
+    ],
+    updatedAt: "2023-10-05T15:00:36.591Z",
+  },
+
+  {
+    id: "1c736fd4-6156-4dcc-b1c1-5282df499475",
+    patientId: "6e3cedd7-1f0e-4b25-aace-67ed4ab200b7",
+    addressId: "1",
+    illnessId: "d7429b27-aa96-4f35-b842-58d6e149c69a",
+    serviceId: "183639",
+    service: "Consulta em consultório (no horário normal ou preestabelecido)",
+    dateOfService: "2023-10-05T00:00:00.000Z" as any,
+    porcentage: [
+      {
+        id: "d7429b27-aa96-4f35-b842-58d6e149c69a",
+        name: "Neoplasias",
+        value: 10,
+      },
+      {
+        id: "9723efa0-2ecf-4547-ab0a-636df023de0a",
+        name: "Diabetes",
+        value: 98,
+      },
+      {
+        id: "f8148b10-14d2-4a2b-8560-64f0a22fa8cb",
+        name: "Renal cronica",
+        value: 15,
+      },
+    ],
+    updatedAt: "2023-10-05T15:00:36.591Z" as any,
+  },
+  {
+    id: "1c736fd4-6156-4dcc-b1c1-5282df499475",
+    patientId: "6e3cedd7-1f0e-4b25-aace-67ed4ab200b7",
+    addressId: "1",
+    illnessId: "9723efa0-2ecf-4547-ab0a-636df023de0a",
+    serviceId: "183639",
+    service: "Hemograma com contagem de plaquetas ou frações (eritrograma, leucograma, plaquetas)",
+    dateOfService: "2023-10-05T00:00:00.000Z",
+    porcentage: [
+      {
+        id: "d7429b27-aa96-4f35-b842-58d6e149c69a",
+        name: "Neoplasias",
+        value: 70,
+      },
+      {
+        id: "9723efa0-2ecf-4547-ab0a-636df023de0a",
+        name: "Diabetes",
+        value: 97,
+      },
+      {
+        id: "f8148b10-14d2-4a2b-8560-64f0a22fa8cb",
+        value: 10,
+        name: "Renal cronica",
+      },
+    ],
+    updatedAt: "2023-10-05T15:00:36.591Z",
+  },
+  {
+    id: "1c736fd4-6156-4dcc-b1c1-5282df499475",
+    patientId: "6e3cedd7-1f0e-4b25-aace-67ed4ab200b7",
+    addressId: "2",
+    illnessId: "f8148b10-14d2-4a2b-8560-64f0a22fa8cb",
+    serviceId: "183639",
+    service: "Vitamina B12 - pesquisa e/ou dosagem",
+    dateOfService: "2023-10-05T00:00:00.000Z",
+    porcentage: [
+      {
+        id: "d7429b27-aa96-4f35-b842-58d6e149c69a",
+        value: 10,
+        name: "Neoplasias",
+      },
+      {
+        id: "9723efa0-2ecf-4547-ab0a-636df023de0a",
+        name: "Diabetes",
+        value: 98,
+      },
+      {
+        id: "f8148b10-14d2-4a2b-8560-64f0a22fa8cb",
+        name: "Renal cronica",
+        value: 70,
+      },
+    ],
+    updatedAt: "2023-10-05T15:00:36.591Z",
+  },
+
+
+
+  
+  {
+    id: "1c736fd4-6156-4dcc-b1c1-5282df499475",
+    patientId: "f78342f0-0f60-4881-9a93-d88f9f4c5d4c",
+    addressId: "2",
+    illnessId: "d7429b27-aa96-4f35-b842-58d6e149c69a",
+    serviceId: "183639",
+    service: "Vitamina B12 - pesquisa e/ou dosagem",
+    dateOfService: "2023-10-05T00:00:00.000Z",
+    porcentage: [
+      {
+        id: "d7429b27-aa96-4f35-b842-58d6e149c69a",
+        value: 10,
+        name: "Neoplasias",
+      },
+      {
+        id: "9723efa0-2ecf-4547-ab0a-636df023de0a",
+        name: "Diabetes",
+        value: 98,
+      },
+      {
+        id: "f8148b10-14d2-4a2b-8560-64f0a22fa8cb",
+        name: "Renal cronica",
+        value: 70,
+      },
+    ],
+    updatedAt: "2023-10-05T15:00:36.591Z",
+  },
+  {
+    id: "1c736fd4-6156-4dcc-b1c1-5282df499475",
+    patientId: "aeacc6a2-fc36-4073-8116-c1898be4e51f",
+    addressId: "2",
+    illnessId: "d7429b27-aa96-4f35-b842-58d6e149c69a",
+    serviceId: "183639",
+    service: "Vitamina B12 - pesquisa e/ou dosagem",
+    dateOfService: "2023-10-05T00:00:00.000Z",
+    porcentage: [
+      {
+        id: "d7429b27-aa96-4f35-b842-58d6e149c69a",
+        value: 10,
+        name: "Neoplasias",
+      },
+      {
+        id: "9723efa0-2ecf-4547-ab0a-636df023de0a",
+        name: "Diabetes",
+        value: 98,
+      },
+      {
+        id: "f8148b10-14d2-4a2b-8560-64f0a22fa8cb",
+        name: "Renal cronica",
+        value: 70,
+      },
+    ],
+    updatedAt: "2023-10-05T15:00:36.591Z",
+  },
+  {
+    id: "1c736fd4-6156-4dcc-b1c1-5282df499475",
+    patientId: "bd752228-ac24-4cdf-b353-1ea0635b7260",
+    addressId: "2",
+    illnessId: "d7429b27-aa96-4f35-b842-58d6e149c69a",
+    serviceId: "183639",
+    service: "Vitamina B12 - pesquisa e/ou dosagem",
+    dateOfService: "2023-10-05T00:00:00.000Z",
+    porcentage: [
+      {
+        id: "d7429b27-aa96-4f35-b842-58d6e149c69a",
+        value: 10,
+        name: "Neoplasias",
+      },
+      {
+        id: "9723efa0-2ecf-4547-ab0a-636df023de0a",
+        name: "Diabetes",
+        value: 98,
+      },
+      {
+        id: "f8148b10-14d2-4a2b-8560-64f0a22fa8cb",
+        name: "Renal cronica",
+        value: 70,
+      },
+    ],
+    updatedAt: "2023-10-05T15:00:36.591Z",
+  },
+  {
+    id: "1c736fd4-6156-4dcc-b1c1-5282df499475",
+    patientId: "e680ecfb-c020-4065-93a7-4df1a8cdfe1c",
+    addressId: "2",
+    illnessId: "d7429b27-aa96-4f35-b842-58d6e149c69a",
+    serviceId: "183639",
+    service: "Vitamina B12 - pesquisa e/ou dosagem",
+    dateOfService: "2023-10-05T00:00:00.000Z",
+    porcentage: [
+      {
+        id: "d7429b27-aa96-4f35-b842-58d6e149c69a",
+        value: 10,
+        name: "Neoplasias",
+      },
+      {
+        id: "9723efa0-2ecf-4547-ab0a-636df023de0a",
+        name: "Diabetes",
+        value: 98,
+      },
+      {
+        id: "f8148b10-14d2-4a2b-8560-64f0a22fa8cb",
+        name: "Renal cronica",
+        value: 70,
+      },
+    ],
+    updatedAt: "2023-10-05T15:00:36.591Z",
+  },
+  {
+    id: "1c736fd4-6156-4dcc-b1c1-5282df499475",
+    patientId: "cfd79802-c64a-421c-b3e8-c59153f6b929",
+    addressId: "2",
+    illnessId: "d7429b27-aa96-4f35-b842-58d6e149c69a",
+    serviceId: "183639",
+    service: "Vitamina B12 - pesquisa e/ou dosagem",
+    dateOfService: "2023-10-05T00:00:00.000Z",
+    porcentage: [
+      {
+        id: "d7429b27-aa96-4f35-b842-58d6e149c69a",
+        value: 10,
+        name: "Neoplasias",
+      },
+      {
+        id: "9723efa0-2ecf-4547-ab0a-636df023de0a",
+        name: "Diabetes",
+        value: 98,
+      },
+      {
+        id: "f8148b10-14d2-4a2b-8560-64f0a22fa8cb",
+        name: "Renal cronica",
+        value: 70,
+      },
+    ],
+    updatedAt: "2023-10-05T15:00:36.591Z",
+  },
+  {
+    id: "1c736fd4-6156-4dcc-b1c1-5282df499475",
+    patientId: "6e3cedd7-1f0e-4b25-aace-67ed4ab200b7",
+    addressId: "2",
+    illnessId: "d7429b27-aa96-4f35-b842-58d6e149c69a",
+    serviceId: "183639",
+    service: "Vitamina B12 - pesquisa e/ou dosagem",
+    dateOfService: "2023-10-05T00:00:00.000Z",
+    porcentage: [
+      {
+        id: "d7429b27-aa96-4f35-b842-58d6e149c69a",
+        value: 10,
+        name: "Neoplasias",
+      },
+      {
+        id: "9723efa0-2ecf-4547-ab0a-636df023de0a",
+        name: "Diabetes",
+        value: 98,
+      },
+      {
+        id: "f8148b10-14d2-4a2b-8560-64f0a22fa8cb",
+        name: "Renal cronica",
+        value: 70,
+      },
+    ],
+    updatedAt: "2023-10-05T15:00:36.591Z",
+  },
+  {
+    id: "1c736fd4-6156-4dcc-b1c1-5282df499475",
+    patientId: "efa5e3f6-343d-4e5d-bb8b-e7178b98c290",
+    addressId: "2",
+    illnessId: "d7429b27-aa96-4f35-b842-58d6e149c69a",
+    serviceId: "183639",
+    service: "Vitamina B12 - pesquisa e/ou dosagem",
+    dateOfService: "2023-10-05T00:00:00.000Z",
+    porcentage: [
+      {
+        id: "d7429b27-aa96-4f35-b842-58d6e149c69a",
+        value: 10,
+        name: "Neoplasias",
+      },
+      {
+        id: "9723efa0-2ecf-4547-ab0a-636df023de0a",
+        name: "Diabetes",
+        value: 98,
+      },
+      {
+        id: "f8148b10-14d2-4a2b-8560-64f0a22fa8cb",
+        name: "Renal cronica",
+        value: 70,
+      },
+    ],
+    updatedAt: "2023-10-05T15:00:36.591Z",
+  },  
 ] as Diagnose[];

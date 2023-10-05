@@ -18,7 +18,7 @@ type UserModalProps = {
 
 const UserModal = ({ user, illness }: UserModalProps) => {
   return (
-    <DialogContent className="max-w-3xl">
+    <DialogContent className="max-w-7xl">
       <DialogHeader>
         <DialogTitle className="text-2xl mb-2">
           Dados do beneficiário

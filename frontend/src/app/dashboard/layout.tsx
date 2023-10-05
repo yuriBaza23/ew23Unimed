@@ -11,7 +11,7 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <section className={`flex w-screen h-screen gap-1`}>
+    <section className={`flex w-screen h-screen`}>
       <Navbar />
       {children}
     </section>

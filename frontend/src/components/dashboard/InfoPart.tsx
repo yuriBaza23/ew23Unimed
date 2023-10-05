@@ -1,5 +1,6 @@
 import useCardIllness from "@/context/useCardIllness";
-import { Client, diagnostics, illnesses } from "@/utils/types";
+import useIllness from "@/context/useIllness";
+import { Client, diagnostics, illnesses as fakeIllnesses } from "@/utils/types";
 
 type InfoPartProps = {
   user: Client;
@@ -7,12 +8,13 @@ type InfoPartProps = {
 
 const InfoPart = ({ user }: InfoPartProps) => {
   const { changeIllness, changeRate } = useCardIllness();
+  const { illnesses } = useIllness();
 
   const userDiagnostics = diagnostics
     .filter((d) => d.patientId === user.id)
     .map((d) => d.illnessId);
 
-  const illness = illnesses.filter((i) => userDiagnostics.includes(i.id));
+  const illness = illnesses?.filter((i) => userDiagnostics.includes(i.id));
 
   return (
     <div className="min-w-fit">
@@ -21,7 +23,7 @@ const InfoPart = ({ user }: InfoPartProps) => {
       <div className="mt-2 text-black">
         <h1 className="text-xl">Outros Fatores de Risco:</h1>
         <div className="flex flex-col gap-1">
-          {illness.map((illness, index) => (
+          {illness?.map((illness, index) => (
             <div
               key={index}
               className="text-lg flex justify-center hover:cursor-pointer"
@@ -33,7 +35,7 @@ const InfoPart = ({ user }: InfoPartProps) => {
                       (d) =>
                         d.patientId === user.id && d.illnessId === illness.id
                     )[0]
-                    .porcentage?.filter((el) => el.illId === illness.id)[0]
+                    .porcentage?.filter((el) => el.id === illness.id)[0]
                     .value as number
                 );
               }}
@@ -46,7 +48,7 @@ const InfoPart = ({ user }: InfoPartProps) => {
                       (d) =>
                         d.patientId === user.id && d.illnessId === illness.id
                     )[0]
-                    .porcentage?.filter((el) => el.illId === illness.id)[0]
+                    .porcentage?.filter((el) => el.id === illness.id)[0]
                     .value
                 }
                 % {"->"}

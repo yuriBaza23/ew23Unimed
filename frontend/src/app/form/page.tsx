@@ -3,6 +3,8 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 type dataProps = {};
 
@@ -150,10 +152,25 @@ export default function Home() {
   ] as formProps[];
 
   return (
-    <div className="w-full flex flex-col gap-4 items-center py-10">
-      <div className="w-72 flex flex-col gap-8">
-        <h1 className="text-center text-2xl">Formulario</h1>
-        <Input placeholder="Número do cartão Unimed" />
+    <div className="w-full flex flex-col gap-4 items-center py-10 overflow-x-hidden">
+      <div className="w-[40rem] flex flex-col gap-8 bg-green-100 p-10 border border-green-300 rounded">
+        <div className="flex flex-col justify-center"> 
+          <Image
+            alt=""
+            src="/logo.png"
+            width={150}
+            height={70}
+            className="items-center flex justify-center w-2/5 self-center"
+          />
+          <h1 className={`font-bold text-green-600 pb-8 text-center text-2xl`}>
+            Insight
+          </h1>
+        </div>
+        <h1 className="text-center text-4xl text-green-600">Formulario</h1>
+        <Input
+          placeholder="Número do cartão Unimed"
+          className="border border-green-500"
+        />
         {form.map((f, index) => (
           <div className="flex flex-col gap-4" key={index}>
             <h1>
@@ -169,6 +186,7 @@ export default function Home() {
             </RadioGroup>
           </div>
         ))}
+        <Button className="mb-32">Enviar</Button>
       </div>
     </div>
   );

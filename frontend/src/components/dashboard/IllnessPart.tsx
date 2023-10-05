@@ -34,7 +34,7 @@ const IllnessPart = ({ user, changeIllness }: IllnessPartProps) => {
                   rate
                 )} px-4 py-1 rounded-full hover:cursor-pointer`}
               >
-                {`Estado 
+                {`Fator de Risco 
           ${rate}%`}
               </h1>
             </TooltipTrigger>
@@ -48,11 +48,11 @@ const IllnessPart = ({ user, changeIllness }: IllnessPartProps) => {
         Observado desde:{" "}
         {format(new Date(illnessDiagnostics[0]?.dateOfService), "dd/MM/yyyy")}
       </h1>
-      <div className="mt-2">
+      {/* <div className="mt-2">
         <h1 className="text-lg text-black">
           {"->"} Diagnosticado de acordo com:
         </h1>
-      </div>
+      </div> */}
     </div>
   );
 };
