@@ -29,7 +29,7 @@ export class AdminRepository implements IAdminRepository {
 
         if(!result) throw new Error('This admin does not exists');
 
-        await prisma.adimin.update({
+        await prisma.admin.update({
             where: { name },
             data: {
                 password: input.password

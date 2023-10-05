@@ -1,3 +1,5 @@
+import { IClient } from "./IClient";
+
 export interface IService {
     id: string;
     code: string;
@@ -5,4 +7,5 @@ export interface IService {
     professional: string;
     description: string;
     cost: string;
+    patientId: string;
 }
