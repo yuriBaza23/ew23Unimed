@@ -1,5 +1,3 @@
-import { IClient } from "./IClient";
-
 export interface IService {
     id: string;
     code: string;

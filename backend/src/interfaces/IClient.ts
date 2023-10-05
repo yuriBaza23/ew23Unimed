@@ -1,5 +1,6 @@
 export interface IClient {
-    id: string;
+    id?: string;
+    unimedCard: string;
     name: string;
     birthdate: Date;
     peopleWhoLivesWith: number;

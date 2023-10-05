@@ -22,15 +22,13 @@ model illness {
   cost              String?     @db.VarChar(255)
   averageAge        String?     @db.VarChar(255)
   womenPercentage   String?     @db.VarChar(255)
-  illnessMetrics    metric[]
-  diseasedClients   cliente[]
+  metrics           Json        @db.Json   
 }
 
 model metric {
   question   String  @unique @db.VarChar(255)
-  value     Int
+  value     Int @db.Integer
   illnessId String  @db.Uuid
-  illness   illness? @relation(fields: [illnessId], references: [id])
 }
 
 model patient {
@@ -55,6 +53,7 @@ model patient {
   historicOfDiabetes String @db.VarChar(255)
   historicOfObesity String @db.VarChar(255)
   unimedCard String @db.VarChar(255)
+  
 }
 
 model address {

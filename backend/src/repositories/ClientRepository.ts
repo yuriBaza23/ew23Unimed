@@ -7,7 +7,9 @@ let prisma = new PrismaClient();
 export class ClientRepository implements IClientRepository {
     async insert(input: IClient): Promise<void> {
         await prisma.patient.create({
-            data: { ...input }
+            data: { 
+                id:input.id!,
+                ...input }
         })        
     }
 
