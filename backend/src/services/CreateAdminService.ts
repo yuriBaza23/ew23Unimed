@@ -13,10 +13,10 @@ export class CreateAdminService {
     async execute({name, password, confirmPassword}: ICreateAdminRequest): Promise<ICreateAdminResponse> {
         if(password != confirmPassword) throw new AppError('Senhas incompativeis');
 
-        const admin = Admin.create(name, await this.hashRepo.cryptographie(password))
+        const admin = Admin.create(name, await this.hashRepo.cryptographie(password));
         let result = admin.toJSON();
 
-        this.adminRepo.insert(result);
-        return result
+        await this.adminRepo.insert(result);
+        return result;
     }
 }

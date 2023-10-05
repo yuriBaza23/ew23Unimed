@@ -11,7 +11,7 @@ datasource db {
 }
 
 model admin {
-  name      String @id @db.Uuid
+  name      String @unique @id
   password  String @db.VarChar(255)
 }
 
@@ -22,13 +22,13 @@ model illness {
   cost              String?     @db.VarChar(255)
   averageAge        String?     @db.VarChar(255)
   womenPercentage   String?     @db.VarChar(255)
-  metrics           Json        @db.Json   
+  metrics           Json        @db.Json
+  atributes         String      []
 }
 
 model metric {
   question   String  @unique @db.VarChar(255)
   value     Int @db.Integer
-  illnessId String  @db.Uuid
 }
 
 model patient {
@@ -71,4 +71,5 @@ model diagnostics {
   serviceId String @db.VarChar(255)
   service String @db.VarChar(255)
   dateOfService DateTime @db.Date
+  updatedAt DateTime @default(now())
 }

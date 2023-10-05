@@ -1,7 +1,5 @@
-import { uuid } from "uuidv4";
-import { IClient } from "../interfaces/IClient";
 import { IIllness } from "../interfaces/IIllness";
-import { IMetrics } from "../interfaces/IMetrics";
+import { createUUID } from "../utils/createUUID";
 
 export class Illness {
     private readonly _id: string;
@@ -9,12 +7,14 @@ export class Illness {
     private _percentege?: string;
     private _cost?: string;
     private _averageAge?: string;
+    private _atributes: string[];
     private _womenPercentage?: string;
-    private _metrics?: IMetrics;
+    private _metrics?: any;
 
     private constructor(props: IIllness) {
-        this._id = props.id || uuid();
+        this._id = props.id || createUUID();
         this._name = props.name;
+        this._atributes = props.atributes;
         this._percentege = props.percentege;
         this._cost = props.cost;
         this._metrics = props.metrics;
@@ -33,6 +33,7 @@ export class Illness {
             percentege: this._percentege,
             cost: this._cost,
             metrics: this._metrics,
+            atributes: this._atributes,
             averageAge: this._averageAge,
             womenPercentage: this._womenPercentage,
         }

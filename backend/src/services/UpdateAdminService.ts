@@ -14,13 +14,13 @@ export class UpdateAdminService {
 
         let adminComp = await this.adminRepo.get(admin.name);
 
-        if(await this.hashRepo.uncryptographie(admin.oldPassword, adminComp.password)) {
-
-            await this.adminRepo.update({
+        if(await this.hashRepo.uncryptographie(admin.password, adminComp.password)) {
+            let result = {
                 name: admin.name,
                 password: await this.hashRepo.cryptographie(admin.password)
-            });
-            return admin;
+            }
+            await this.adminRepo.update(result);
+            return result;
         }
         throw new AppError("Senha Incompativel");
     }

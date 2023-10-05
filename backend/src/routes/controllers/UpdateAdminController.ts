@@ -10,10 +10,10 @@ export class UpdateAdminController {
     ) { }
 
     async handle(req: Request, res: Response): Promise<Response> {
-        let admin = req.body;
+        let {name, password, confirmPassword, oldPassword} = req.body;
 
         let updateAdminService = new UpdateAdminService(this.adminRepo, this.hashRepo);
-        let result = updateAdminService.execute(admin);
+        let result = await updateAdminService.execute({name, password, confirmPassword, oldPassword});
 
         return res.status(200).json(result)
     }

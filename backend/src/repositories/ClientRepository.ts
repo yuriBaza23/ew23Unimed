@@ -3,7 +3,6 @@ import { IClient } from "../interfaces/IClient";
 import { IClientRepository } from "../interfaces/IClientRepository";
 
 let prisma = new PrismaClient();
-
 export class ClientRepository implements IClientRepository {
     async insert(input: IClient): Promise<void> {
         await prisma.patient.create({
@@ -39,7 +38,7 @@ export class ClientRepository implements IClientRepository {
     }
 
     async update(input: IClient): Promise<void> {
-        let id = input.id
+        let id = input.id!;
         
         await prisma.patient.update({
             where: { id },

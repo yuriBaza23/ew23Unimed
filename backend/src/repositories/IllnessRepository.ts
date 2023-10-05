@@ -24,6 +24,7 @@ export class IllnessRepository implements IIllnessRepository {
             id: result.id,
             name: result.name,
             metrics: result.metrics, 
+            atributes: result.atributes,
             averageAge: result.averageAge || undefined,
             cost: result.cost || undefined,
             percentege: result.percentege || undefined,
