@@ -4,7 +4,7 @@ export const mainRouter = express.Router();
 
 mainRouter.get('/', (_: Request, res: Response) => {
     res.json({
-        project: 'Newhappen Teleterapia',
+        project: 'Hackathon Unimed EW23',
         accountable: {
         name: "Yuri Baza",
             contact: "yuribaza@newhappen.com.br"

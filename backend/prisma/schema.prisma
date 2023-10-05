@@ -9,3 +9,57 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model admin {
+  name      String @id @db.Uuid
+  password  String @db.VarChar(255)
+}
+
+model illness {
+  id                String      @id @db.Uuid
+  name              String      @unique @db.VarChar(255)
+  percentege        String?     @db.VarChar(255)
+  cost              String?     @db.VarChar(255)
+  averageAge        String?     @db.VarChar(255)
+  womenPercentage   String?     @db.VarChar(255)
+  illnessMetrics    metric[]
+  diseasedClients   cliente[]
+}
+
+model metric {
+  question   String  @unique @db.VarChar(255)
+  value     Int
+  illnessId String  @db.Uuid
+  illness   illness? @relation(fields: [illnessId], references: [id])
+}
+
+model patient {
+  id String @id @db.Uuid
+  name String @db.VarChar(255)
+  birthdate DateTime @db.Date
+  peopleWhoLivesWith Int @db.Integer
+  perCapitaIncome Int @db.Integer
+  schooling String @db.VarChar(255)
+  hemodialysis Boolean @db.Boolean
+  DPOCHistory Boolean @db.Boolean
+  respiratoryProblem Boolean @db.Boolean
+  healthyEating Boolean @db.Boolean
+  anxiety String @db.VarChar(255)
+  emotionalLackOfControl String @db.VarChar(255)
+  insomnia String @db.VarChar(255)
+  gender String @db.VarChar(255)
+  alcoholFrequence String @db.VarChar(255)
+  smokingFrequence String @db.VarChar(255)
+  workoutFrequence String @db.VarChar(255)
+  historicOfCancer String @db.VarChar(255)
+  historicOfDiabetes String @db.VarChar(255)
+  historicOfObesity String @db.VarChar(255)
+  unimedCard String @db.VarChar(255)
+}
+
+model address {
+  id String @id @db.Uuid
+  city String @db.VarChar(255)
+  state String @db.VarChar(255)
+  patientId String @db.Uuid
+}
