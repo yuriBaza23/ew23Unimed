@@ -1,5 +1,3 @@
-import { IService } from "./IService";
-
 export interface IClient {
     id: string;
     city: string;

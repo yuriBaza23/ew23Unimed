@@ -1,10 +1,13 @@
 import { IClient } from "./IClient";
+import { IMetrics } from "./IMetrics";
 
 export interface IIllness {
-    id: string;
-    percentege?: number;
+    id?: string;
+    name: string;
+    percentege?: string;
     cost?: string;
     averageAge?: string;
-    womenPercentage?: number;
+    womenPercentage?: string;
     diseasedClients?: IClient[];
+    illnessMetrics: IMetrics[];
 }
