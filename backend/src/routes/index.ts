@@ -14,5 +14,5 @@ route.use('/admin', adminRoute);
 route.use('/auth', authRoute);
 route.use('/illness', illnessRoute);
 route.use('/address', addressRoute);
-route.use('/patient', patientRoute)
+route.use('/patient', patientRoute);
 route.use('/diagnostic', diagnosticsRoute);

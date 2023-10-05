@@ -73,3 +73,13 @@ model diagnostics {
   dateOfService DateTime @db.Date
   updatedAt DateTime @default(now())
 }
+
+model service {
+  id String @id @db.Uuid
+  code String @db.VarChar(255)
+  date DateTime @db.Date
+  professional String @db.VarChar(255)
+  description String @db.VarChar(255)
+  cost String @db.VarChar(255)
+  patientId String @db.VarChar(255)
+}

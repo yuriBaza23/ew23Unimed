@@ -77,6 +77,19 @@ CREATE TABLE "diagnostics" (
     CONSTRAINT "diagnostics_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "service" (
+    "id" UUID NOT NULL,
+    "code" VARCHAR(255) NOT NULL,
+    "date" DATE NOT NULL,
+    "professional" VARCHAR(255) NOT NULL,
+    "description" VARCHAR(255) NOT NULL,
+    "cost" VARCHAR(255) NOT NULL,
+    "patientId" VARCHAR(255) NOT NULL,
+
+    CONSTRAINT "service_pkey" PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "admin_name_key" ON "admin"("name");
 

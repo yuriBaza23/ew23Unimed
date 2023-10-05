@@ -2,5 +2,6 @@ import { IService } from "./IService";
 
 export interface IServiceRepository {
     insert(input: IService): Promise<void>;
-    read(code: string): Promise<IService>;
+    read(id: string): Promise<IService>;
+    readAll(): Promise<IService[]>
 }
