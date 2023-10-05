@@ -10,27 +10,41 @@ export type Admin = {
   password: string;
 };
 
+export type Diagnose = {
+  id: string;
+  patientId: string;
+  addressId: string;
+  illnessId: string;
+  serviceId: string;
+  service: string;
+  dateOfService: Date;
+
+  porcentage?: number;
+  address?: Address;
+  updatedAt: Date;
+};
+
 export type Client = {
   id: string;
   name: string;
   birthdate: Date;
-  peopleWhoLivesWith: number;
-  perCapitaIncome: number;
-  schooling: string;
-  hemodialysis: boolean;
-  DPOCHistory: boolean;
-  respiratoryProblem: boolean;
-  healthyEating: boolean;
-  anxiety: string;
-  emotionalLackOfControl: string;
-  insomnia: string;
-  gender: string;
-  alcoholFrequence: string;
-  smokingFrequence: string;
-  workoutFrequence: string;
-  historicOfCancer: string;
-  historicOfDiabetes: string;
-  historicOfObesity: string;
+  peopleWhoLivesWith?: number;
+  perCapitaIncome?: number;
+  schooling?: string;
+  hemodialysis?: boolean;
+  DPOCHistory?: boolean;
+  respiratoryProblem?: boolean;
+  healthyEating?: boolean;
+  anxiety?: string;
+  emotionalLackOfControl?: string;
+  insomnia?: string;
+  gender?: string;
+  alcoholFrequence?: string;
+  smokingFrequence?: string;
+  workoutFrequence?: string;
+  historicOfCancer?: string;
+  historicOfDiabetes?: string;
+  historicOfObesity?: string;
 };
 
 export type Metrics = {
@@ -40,22 +54,16 @@ export type Metrics = {
 };
 
 export type Illness = {
-  id?: string;
+  id: string;
   name: string;
-  percentege?: string;
-  cost?: string;
-  averageAge?: string;
-  womenPercentage?: string;
-  diseasedClients?: Client[];
-  illnessMetrics?: Metrics[];
+  percentege: string | null;
+  cost: string | null;
+  averageAge: string | null;
+  womenPercentage: string | null;
+  metrics: any;
+  atributes: string[];
 };
 
-export type Diagnose = {
-  userId: string;
-  illness: string;
-  illnessRate: number;
-  resetDate: Date | string;
-};
 
 export type Service = {
   id: string;
