@@ -1,14 +1,14 @@
 export interface IClient {
     id: string;
     name: string;
-    birthdate: Date;
-    peopleWhoLivesWith: number;
-    perCapitaIncome: number;
+    age: string;
+    peopleWhoLivesWith: string;
+    perCapitaIncome: string;
     schooling: string;
-    hemodialysis: boolean;
-    DPOCHistory: boolean;
-    respiratoryProblem: boolean;
-    healthyEating: boolean;
+    hemodialysis: string;
+    DPOCHistory: string;
+    respiratoryProblem: string;
+    healthyEating: string;
     anxiety: string;
     emotionalLackOfControl: string;
     insomnia: string;
@@ -19,4 +19,5 @@ export interface IClient {
     historicOfCancer: string;
     historicOfDiabetes: string;
     historicOfObesity: string;
+    unimedCard: string;
 }
