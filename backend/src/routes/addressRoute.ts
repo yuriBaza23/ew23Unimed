@@ -1,4 +1,4 @@
-import express, { Request, Response, Router } from "express";
+import { Request, Response, Router } from "express";
 import { resolverController } from "../adapters/resolverController";
 import { AddressRepository } from "../repositories/AddressRepository";
 import { CreateAddressController } from "./controllers/CreateAddressController";

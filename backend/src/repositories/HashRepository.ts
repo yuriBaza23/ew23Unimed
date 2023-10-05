@@ -3,7 +3,7 @@ import * as bcrypt from 'bcrypt'
 
 export class HashRepository implements IHashRepository {
     async cryptographie(password: string): Promise<string> {
-        return await bcrypt.hash(password, 2219192022);
+        return await bcrypt.hash(password, 1);
     }
 
     async uncryptographie(password: string, cryptographicPassword: string): Promise<boolean> {
