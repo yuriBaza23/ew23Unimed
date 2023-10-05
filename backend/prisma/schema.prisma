@@ -34,14 +34,14 @@ model metric {
 model patient {
   id String @id @db.Uuid
   name String @db.VarChar(255)
-  birthdate DateTime @db.Date
-  peopleWhoLivesWith Int @db.Integer
-  perCapitaIncome Int @db.Integer
+  age String @db.VarChar(255)
+  peopleWhoLivesWith String @db.VarChar(255)
+  perCapitaIncome String @db.VarChar(255)
   schooling String @db.VarChar(255)
-  hemodialysis Boolean @db.Boolean
-  DPOCHistory Boolean @db.Boolean
-  respiratoryProblem Boolean @db.Boolean
-  healthyEating Boolean @db.Boolean
+  hemodialysis String @db.VarChar(255)
+  DPOCHistory String @db.VarChar(255)
+  respiratoryProblem String @db.VarChar(255)
+  healthyEating String @db.VarChar(255)
   anxiety String @db.VarChar(255)
   emotionalLackOfControl String @db.VarChar(255)
   insomnia String @db.VarChar(255)
@@ -61,4 +61,14 @@ model address {
   city String @db.VarChar(255)
   state String @db.VarChar(255)
   patientId String @db.Uuid
+}
+
+model diagnostics {
+  id String @id @db.Uuid
+  patientId String @db.Uuid
+  addressId String @db.Uuid
+  illnessId String @db.Uuid
+  serviceId String @db.VarChar(255)
+  service String @db.VarChar(255)
+  dateOfService DateTime @db.Date
 }
