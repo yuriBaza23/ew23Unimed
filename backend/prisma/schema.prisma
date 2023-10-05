@@ -46,6 +46,7 @@ model patient {
   historicOfCancer String @db.VarChar(255)
   historicOfDiabetes String @db.VarChar(255)
   historicOfObesity String @db.VarChar(255)
+  unimedCard String @db.VarChar(255)
 }
 
 model address {
