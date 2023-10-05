@@ -9,7 +9,10 @@ export interface IDiagnostics {
   service: string;
   dateOfService: Date
 
-  porcentage?: number;
+  porcentage?: {
+    name: string;
+    value: number;
+  }[];
   address?: IAddress; 
   updatedAt: Date;
 }
