@@ -12,7 +12,7 @@ const UserCard = ({ user, illness }: UserCardProps) => {
   const percentage = diagnostics
     .filter((d) => d.patientId === user.id && d.illnessId === illness.id)
     .map(
-      (el) => el.porcentage?.filter((el) => el.illId === illness.id)[0].value
+      (el) => el.porcentage?.filter((el) => el.id === illness.id)[0].value
     );
 
   const { changeRate, changeIllness } = useCardIllness();

@@ -1,4 +1,4 @@
-import { Client, diagnostics, users, illnesses } from "@/utils/types";
+import { Client, diagnostics } from "@/utils/types";
 import { format } from "date-fns";
 import { Separator } from "../ui/separator";
 

@@ -8,9 +8,14 @@ import {
   SelectValue,
 } from "../ui/select";
 
-const CityFilter = () => {
+type CityFilterProps = {
+  changeCity: (city: string) => void;
+  city: string;
+};
+
+const CityFilter = ({ changeCity, city }: CityFilterProps) => {
   const cities = [
-    "ARARUNA ",
+    "ARARUNA",
     "BARBOSA FERRAZ",
     "BOA ESPERANCA",
     "CAMPO MOURAO",
@@ -26,13 +31,15 @@ const CityFilter = () => {
     "RONCADOR",
   ];
   const [hasFilter, setHasFilter] = useState(false);
-  const [selectedCity, setSelectedCity] = useState(cities[3]);
 
   return (
     <div className="flex space-x-2 items-center">
       <Checkbox
         id="terms"
-        onCheckedChange={() => setHasFilter(!hasFilter)}
+        onCheckedChange={() => {
+          setHasFilter(!hasFilter);
+          changeCity("");
+        }}
         checked={hasFilter}
       />
       <label
@@ -40,7 +47,7 @@ const CityFilter = () => {
         className="text-md font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 flex items-center gap-2"
       >
         Filtrar por cidade
-        <Select onValueChange={(value) => setSelectedCity(value)}>
+        <Select onValueChange={(value) => changeCity(value)} value={city}>
           <SelectTrigger className="w-fit bg-gray-100" disabled={!hasFilter}>
             <SelectValue placeholder="Selecione" />
           </SelectTrigger>

@@ -37,6 +37,12 @@ export class ClientRepository implements IClientRepository {
         return result;
     }
 
+    async readAll(): Promise<IClient[]> {
+        let result = await prisma.patient.findMany();
+        
+        return result;
+    }
+
     async update(input: IClient): Promise<void> {
         let id = input.id!;
         

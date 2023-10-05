@@ -19,11 +19,7 @@ export type Diagnose = {
   service: string;
   dateOfService: Date;
 
-  porcentage?: {
-    illId: string;
-    value: number;
-  }[];
-  address?: Address;
+  porcentage?: { id: string; name: string; value: number }[];
   updatedAt: Date;
 };
 
@@ -78,9 +74,7 @@ export type Service = {
 };
 
 export const selectColor = (percentage: number) => {
-  if (percentage < 30) {
-    return "bg-blue-400";
-  } else if (percentage < 55) {
+  if (percentage < 55) {
     return "bg-green-500";
   } else if (percentage < 95) {
     return "bg-yellow-400";
@@ -89,128 +83,143 @@ export const selectColor = (percentage: number) => {
   }
 };
 
-export const diagnostics = [
+export const addresses = [
   {
-    addressId: "1",
-    dateOfService: new Date("2021-01-01"),
-    id: "1",
-    illnessId: "1",
+    city: "IRETAMA",
     patientId: "1",
-    service: "Consulta",
-    serviceId: "1",
-    updatedAt: new Date("2021-01-01"),
-    porcentage: [
-      {
-        illId: "1",
-        value: 10,
-      },
-      {
-        illId: "2",
-        value: 20,
-      },
-      {
-        illId: "3",
-        value: 30,
-      },
-    ],
+    state: "PR",
+    id: "1",
   },
   {
-    addressId: "1",
-    dateOfService: new Date("2021-01-01"),
-    id: "2",
-    illnessId: "2",
+    city: "CAMPO MOURAO",
     patientId: "2",
-    service: "Consulta",
-    serviceId: "1",
-    updatedAt: new Date("2021-01-01"),
-    porcentage: [
-      {
-        illId: "1",
-        value: 10,
-      },
-      {
-        illId: "2",
-        value: 20,
-      },
-      {
-        illId: "3",
-        value: 30,
-      },
-    ],
+    state: "PR",
+    id: "2",
   },
-  {
-    addressId: "1",
-    dateOfService: new Date("2021-01-01"),
-    id: "3",
-    illnessId: "2",
-    patientId: "3",
-    service: "Consulta",
-    serviceId: "1",
-    updatedAt: new Date("2021-01-01"),
-    porcentage: [
-      {
-        illId: "1",
-        value: 10,
-      },
-      {
-        illId: "2",
-        value: 70,
-      },
-      {
-        illId: "3",
-        value: 98,
-      },
-    ],
-  },
-  {
-    addressId: "1",
-    dateOfService: new Date("2021-01-01"),
-    id: "4",
-    illnessId: "3",
-    patientId: "4",
-    service: "Consulta",
-    serviceId: "1",
-    updatedAt: new Date("2021-01-01"),
-    porcentage: [
-      {
-        illId: "1",
-        value: 10,
-      },
-      {
-        illId: "2",
-        value: 20,
-      },
-      {
-        illId: "3",
-        value: 98,
-      },
-    ],
-  },
-  {
-    addressId: "1",
-    dateOfService: new Date("2021-01-01"),
-    id: "4",
-    illnessId: "1",
-    patientId: "4",
-    service: "Consulta",
-    serviceId: "1",
-    updatedAt: new Date("2021-01-01"),
-    porcentage: [
-      {
-        illId: "1",
-        value: 10,
-      },
-      {
-        illId: "2",
-        value: 20,
-      },
-      {
-        illId: "3",
-        value: 30,
-      },
-    ],
-  },
-] as Diagnose[];
+] as Address[];
+
+// export const diagnostics = [
+//   {
+//     addressId: "1",
+//     dateOfService: new Date("2021-01-01"),
+//     id: "1",
+//     illnessId: "1",
+//     patientId: "1",
+//     service: "Consulta",
+//     serviceId: "1",
+//     updatedAt: new Date("2021-01-01"),
+//     porcentage: [
+//       {
+//         illId: "1",
+//         value: 10,
+//       },
+//       {
+//         illId: "2",
+//         value: 20,
+//       },
+//       {
+//         illId: "3",
+//         value: 30,
+//       },
+//     ],
+//   },
+//   {
+//     addressId: "2",
+//     dateOfService: new Date("2021-01-01"),
+//     id: "2",
+//     illnessId: "2",
+//     patientId: "2",
+//     service: "Consulta",
+//     serviceId: "1",
+//     updatedAt: new Date("2021-01-01"),
+//     porcentage: [
+//       {
+//         illId: "1",
+//         value: 10,
+//       },
+//       {
+//         illId: "2",
+//         value: 20,
+//       },
+//       {
+//         illId: "3",
+//         value: 30,
+//       },
+//     ],
+//   },
+//   {
+//     addressId: "2",
+//     dateOfService: new Date("2021-01-01"),
+//     id: "3",
+//     illnessId: "2",
+//     patientId: "3",
+//     service: "Consulta",
+//     serviceId: "1",
+//     updatedAt: new Date("2021-01-01"),
+//     porcentage: [
+//       {
+//         illId: "1",
+//         value: 10,
+//       },
+//       {
+//         illId: "2",
+//         value: 70,
+//       },
+//       {
+//         illId: "3",
+//         value: 98,
+//       },
+//     ],
+//   },
+//   {
+//     addressId: "1",
+//     dateOfService: new Date("2021-01-01"),
+//     id: "4",
+//     illnessId: "3",
+//     patientId: "4",
+//     service: "Consulta",
+//     serviceId: "1",
+//     updatedAt: new Date("2021-01-01"),
+//     porcentage: [
+//       {
+//         illId: "1",
+//         value: 10,
+//       },
+//       {
+//         illId: "2",
+//         value: 20,
+//       },
+//       {
+//         illId: "3",
+//         value: 98,
+//       },
+//     ],
+//   },
+//   {
+//     addressId: "1",
+//     dateOfService: new Date("2021-01-01"),
+//     id: "4",
+//     illnessId: "1",
+//     patientId: "4",
+//     service: "Consulta",
+//     serviceId: "1",
+//     updatedAt: new Date("2021-01-01"),
+//     porcentage: [
+//       {
+//         illId: "1",
+//         value: 10,
+//       },
+//       {
+//         illId: "2",
+//         value: 20,
+//       },
+//       {
+//         illId: "3",
+//         value: 30,
+//       },
+//     ],
+//   },
+// ] as Diagnose[];
 
 export const illnesses = [
   {
@@ -368,3 +377,87 @@ export const users = [
     workoutFrequence: "Nunca",
   },
 ] as Client[];
+
+export const diagnostics = [
+  {
+    id: "1c736fd4-6156-4dcc-b1c1-5282df499475",
+    patientId: "4264b92a-a74f-4a50-b335-0164ced6b9c6",
+    addressId: "1",
+    illnessId: "d7429b27-aa96-4f35-b842-58d6e149c69a",
+    serviceId: "183639",
+    service: "Serviço 1",
+    dateOfService: "2023-10-05T00:00:00.000Z" as any,
+    porcentage: [
+      {
+        id: "d7429b27-aa96-4f35-b842-58d6e149c69a",
+        name: "Neoplasias",
+        value: 98,
+      },
+      {
+        id: "9723efa0-2ecf-4547-ab0a-636df023de0a",
+        name: "Diabetes",
+        value: 10,
+      },
+      {
+        id: "f8148b10-14d2-4a2b-8560-64f0a22fa8cb",
+        name: "Renal cronica",
+        value: 70,
+      },
+    ],
+    updatedAt: "2023-10-05T15:00:36.591Z" as any,
+  },
+  {
+    id: "1c736fd4-6156-4dcc-b1c1-5282df499475",
+    patientId: "4264b92a-a74f-4a50-b335-0164ced6b9c6",
+    addressId: "1",
+    illnessId: "9723efa0-2ecf-4547-ab0a-636df023de0a",
+    serviceId: "183639",
+    service: "Serviço 2",
+    dateOfService: "2023-10-05T00:00:00.000Z",
+    porcentage: [
+      {
+        id: "d7429b27-aa96-4f35-b842-58d6e149c69a",
+        name: "Neoplasias",
+        value: 98,
+      },
+      {
+        id: "9723efa0-2ecf-4547-ab0a-636df023de0a",
+        name: "Diabetes",
+        value: 70,
+      },
+      {
+        id: "f8148b10-14d2-4a2b-8560-64f0a22fa8cb",
+        name: "Renal cronica",
+        value: 10,
+      },
+    ],
+    updatedAt: "2023-10-05T15:00:36.591Z",
+  },
+  {
+    id: "1c736fd4-6156-4dcc-b1c1-5282df499475",
+    patientId: "4264b92a-a74f-4a50-b335-0164ced6b9c6",
+    addressId: "2",
+    illnessId: "f8148b10-14d2-4a2b-8560-64f0a22fa8cb",
+    serviceId: "183639",
+    service: "Serviço 3",
+    dateOfService: "2023-10-05T00:00:00.000Z",
+    porcentage: [
+      {
+        id: "d7429b27-aa96-4f35-b842-58d6e149c69a",
+        name: "Neoplasias",
+        value: 10,
+      },
+      {
+        id: "9723efa0-2ecf-4547-ab0a-636df023de0a",
+        name: "Diabetes",
+        value: 70,
+      },
+      {
+        id: "f8148b10-14d2-4a2b-8560-64f0a22fa8cb",
+        name: "Renal cronica",
+        value: 97,
+      },
+    ],
+    updatedAt: "2023-10-05T15:00:36.591Z",
+  },
+] as Diagnose[];
