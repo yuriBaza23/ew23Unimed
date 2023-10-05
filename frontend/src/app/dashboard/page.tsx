@@ -1,6 +1,5 @@
 import MainAccordion from "@/components/dashboard/Accordion";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Separator } from "@/components/ui/separator";
 
 export default function Dashboard() {
   const illnesses = [

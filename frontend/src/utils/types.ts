@@ -1,3 +1,10 @@
+export type Address = {
+  id?: string;
+  city: string;
+  state: string;
+  patientId: string;
+};
+
 export type Illness = {
   name: string;
   description: string;
@@ -342,7 +349,7 @@ export const users = [
     diagnoses: [
       {
         illness: "Diabetes",
-        illnessRate: 98 ,
+        illnessRate: 98,
         resetDate: "2021-10-10",
         userId: "1",
       },
