@@ -35,7 +35,7 @@ const AgeChart = () => {
       },
     ],
   };
-  return <Doughnut data={data} />;
+  return <Doughnut data={data} onClick={(e) => console.log(e)} />;
 };
 
 export default AgeChart;

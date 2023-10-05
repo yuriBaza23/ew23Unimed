@@ -15,7 +15,7 @@ const UserCard = ({ user, illness }: UserCardProps) => {
     <Dialog>
       <DialogTrigger asChild>
         <div
-          className={`flex flex-col gap-2 p-3 w-fit rounded bg-white hover:bg-green-50`}
+          className={`flex flex-col gap-2 p-3 w-fit rounded bg-white hover:bg-green-50 hover:cursor-pointer`}
         >
           <h1 className="p-0 m-0">{user.name}</h1>
           <div
