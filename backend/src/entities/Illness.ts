@@ -11,7 +11,7 @@ export class Illness {
     private _averageAge?: string;
     private _womenPercentage?: string;
     private _diseasedClients?: IClient[];
-    private _illnessMetrics: IMetrics[];
+    private _illnessMetrics?: IMetrics[];
 
     private constructor(props: IIllness) {
         this._id = props.id || uuid();

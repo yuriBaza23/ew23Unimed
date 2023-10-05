@@ -9,5 +9,5 @@ export interface IIllness {
     averageAge?: string;
     womenPercentage?: string;
     diseasedClients?: IClient[];
-    illnessMetrics: IMetrics[];
+    illnessMetrics?: IMetrics[];
 }
