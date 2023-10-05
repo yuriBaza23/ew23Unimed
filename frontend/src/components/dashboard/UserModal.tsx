@@ -5,14 +5,14 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import { Illness, User } from "@/utils/types";
+import { Client, Illness } from "@/utils/types";
 import InfoPart from "./InfoPart";
 import IllnessPart from "./IllnessPart";
 import { Separator } from "../ui/separator";
 import ModalFooter from "./ModalFooter";
 
 type UserModalProps = {
-  user: User;
+  user: Client;
   illness: Illness;
 };
 
@@ -30,12 +30,11 @@ const UserModal = ({ user, illness }: UserModalProps) => {
             <IllnessPart
               user={user}
               changeIllness={() => {}}
-              illness={illness}
             />
           </div>
         </DialogDescription>
       </DialogHeader>
-      <DialogFooter className=" justify-center flex items-center w-full">
+      <DialogFooter className=" flex items-center w-full h-full">
         <ModalFooter user={user} />
       </DialogFooter>
     </DialogContent>

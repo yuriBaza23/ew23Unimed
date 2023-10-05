@@ -1,4 +1,4 @@
-import { Illness, User, selectColor } from "@/utils/types";
+import { Client, diagnostics, selectColor } from "@/utils/types";
 import {
   Tooltip,
   TooltipContent,
@@ -6,18 +6,21 @@ import {
   TooltipTrigger,
 } from "../ui/tooltip";
 import useCardIllness from "@/context/useCardIllness";
+import { format } from "date-fns";
 
 type IllnessPartProps = {
-  user: User;
-  illness: Illness;
+  user: Client;
   changeIllness: (illness: string) => void;
 };
 
-const IllnessPart = ({ user, changeIllness, illness }: IllnessPartProps) => {
-  const rate = user.diagnoses.filter((d) => d.illness === illness.name)[0]
-    .illnessRate;
+const IllnessPart = ({ user, changeIllness }: IllnessPartProps) => {
+  const { illness, rate } = useCardIllness();
 
-  const {illness: illnessName} = useCardIllness();
+  const illnessDiagnostics = diagnostics.filter(
+    (d) => d.patientId === user.id && d.illnessId === illness.id
+  );
+
+  console.log(illness)
 
   return (
     <div className="w-full">
@@ -36,13 +39,15 @@ const IllnessPart = ({ user, changeIllness, illness }: IllnessPartProps) => {
               </h1>
             </TooltipTrigger>
             <TooltipContent>
-                Porcentagem de risco do paciente em conter a doença{" "}
-                {illness.name}
+              Porcentagem de risco do paciente em conter a doença {illness.name}
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>
       </div>
-      <h1 className="text-lg">Diagnosticado desde: Date</h1>
+      <h1 className="text-lg">
+        Observado desde:{" "}
+        {format(new Date(illnessDiagnostics[0]?.dateOfService), "dd/MM/yyyy")}
+      </h1>
       <div className="mt-2">
         <h1 className="text-lg text-black">
           {"->"} Diagnosticado de acordo com:

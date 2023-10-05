@@ -1,20 +1,8 @@
 import MainAccordion from "@/components/dashboard/Accordion";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Illness } from "@/utils/types";
+import { Illness, illnesses } from "@/utils/types";
 
 export default function Dashboard() {
-  const illnesses = [
-    { name: "Renal crônica" },
-    { name: "Diabetes" },
-    { name: "Dpoc" },
-    { name: "Obesidade" },
-    { name: "Psquiatricas" },
-    { name: "Cerebrovascular" },
-    { name: "Hipertensão" },
-    { name: "Cardiovasculares" },
-    { name: "Neoplasias" },
-  ] as Illness[];
-
   return (
     <div className="w-full flex flex-col bg-white gap-1">
       <h1 className="text-4xl p-4 bg-gray-200 font-mono pl-8">

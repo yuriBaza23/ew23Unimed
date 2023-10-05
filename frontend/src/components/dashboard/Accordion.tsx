@@ -1,6 +1,6 @@
 "use client";
 
-import { Illness, users } from "@/utils/types";
+import { Illness, users, illnesses, diagnostics } from "@/utils/types";
 import {
   Accordion,
   AccordionContent,
@@ -25,6 +25,15 @@ const MainAccordion = ({ illness }: MainAccordionProps) => {
   const [range, setRange] = useState<DateRange | undefined>();
   const [hasCalendar, setHasCalendar] = useState(false);
 
+  const userIds = diagnostics.filter((diagnose) => {
+    return diagnose.illnessId === illness.id;
+  }).map((el) => el.patientId);
+
+  const userObj = users.filter((user) => {
+    return userIds.includes(user.id);
+  });
+
+
   return (
     <Accordion
       type="single"
@@ -33,7 +42,7 @@ const MainAccordion = ({ illness }: MainAccordionProps) => {
     >
       <AccordionItem value="item-1">
         <AccordionTrigger className="w-full flex text-lg">
-          {`${illness.name} - ${illness.localPercentage}% de beneficiários locais`}
+          {`${illness.name} - ${illness.percentege}% de beneficiários locais`}
         </AccordionTrigger>
         <AccordionContent className="">
           <div>
@@ -91,14 +100,7 @@ const MainAccordion = ({ illness }: MainAccordionProps) => {
             </div>
             <ScrollArea className="">
               <div className={`flex gap-4 mt-10 flex-wrap max-h-52`}>
-                {users
-                  .filter((user) => {
-                    return (
-                      user.diagnoses.filter((diagnose) => {
-                        return diagnose.illness === illness.name;
-                      }).length > 0
-                    );
-                  })
+                {userObj
                   .map((user, index) => (
                     <UserCard key={index} user={user} illness={illness} />
                   ))}
