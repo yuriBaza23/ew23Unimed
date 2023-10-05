@@ -6,21 +6,19 @@ let prisma = new PrismaClient();
 
 export class ClientRepository implements IClientRepository {
     async insert(input: IClient): Promise<void> {
-        await prisma.cliente.create({
+        await prisma.patient.create({
             data: { ...input }
         })        
     }
 
     async insertService(id: string, ids: string): Promise<void> {
-        let result = await prisma.cliente.findUnique({
+        let result = await prisma.patient.findUnique({
             where: { id }
         })
 
         if(!result) throw new Error("Client not found");
 
-        result.services.push(ids)
-
-        await prisma.cliente.update({
+        await prisma.patient.update({
             where: { id },
             data: {
                 ...result
@@ -28,8 +26,8 @@ export class ClientRepository implements IClientRepository {
         })
     }
 
-    async read(id: String): Promise<IClient> {
-        let result = await prisma.cliente.findUnique({
+    async read(id: string): Promise<IClient> {
+        let result = await prisma.patient.findUnique({
             where: { id }
         })
 
@@ -41,7 +39,7 @@ export class ClientRepository implements IClientRepository {
     async update(input: IClient): Promise<void> {
         let id = input.id
         
-        await prisma.cliente.update({
+        await prisma.patient.update({
             where: { id },
             data: { ...input }
         })

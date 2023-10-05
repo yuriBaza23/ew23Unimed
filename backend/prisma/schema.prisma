@@ -15,35 +15,6 @@ model admin {
   password  String @db.VarChar(255)
 }
 
-model service {
-  id            String      @id @db.Uuid
-  code          String      @db.VarChar(255)
-  date          DateTime    @default(now())
-  professional  String      @db.VarChar(255)
-  description   String      @db.VarChar(255)
-  clienteId     String      @db.Uuid
-  cost          String      @db.VarChar(255)
-  cliente       cliente?    @relation(fields: [clienteId], references: [id])
-}
-
-model cliente {
-  id                    String @id @db.Uuid
-  city                  String @db.VarChar(255)
-  sex                   String @db.VarChar(255)
-  age                   Int
-  peopleWhoLivesWith    Int
-  perCapitaIncome       String @db.VarChar(255)
-  schooling             String @db.VarChar(255)
-  alcoholFrequence      String @db.VarChar(255)
-  smokingFrequence      String @db.VarChar(255)
-  workoutFrequence      String @db.VarChar(255)
-  historicOfCancer      String @db.VarChar(255)
-  historicOfDiabetes    String @db.VarChar(255)
-  services              service[]
-  illnessId             String @db.Uuid
-  illness               illness? @relation(fields: [illnessId], references: [id])
-}
-
 model illness {
   id                String      @id @db.Uuid
   name              String      @unique @db.VarChar(255)
@@ -56,8 +27,39 @@ model illness {
 }
 
 model metric {
-  uestion   String  @unique @db.VarChar(255)
+  question   String  @unique @db.VarChar(255)
   value     Int
   illnessId String  @db.Uuid
   illness   illness? @relation(fields: [illnessId], references: [id])
+}
+
+model patient {
+  id String @id @db.Uuid
+  name String @db.VarChar(255)
+  birthdate DateTime @db.Date
+  peopleWhoLivesWith Int @db.Integer
+  perCapitaIncome Int @db.Integer
+  schooling String @db.VarChar(255)
+  hemodialysis Boolean @db.Boolean
+  DPOCHistory Boolean @db.Boolean
+  respiratoryProblem Boolean @db.Boolean
+  healthyEating Boolean @db.Boolean
+  anxiety String @db.VarChar(255)
+  emotionalLackOfControl String @db.VarChar(255)
+  insomnia String @db.VarChar(255)
+  gender String @db.VarChar(255)
+  alcoholFrequence String @db.VarChar(255)
+  smokingFrequence String @db.VarChar(255)
+  workoutFrequence String @db.VarChar(255)
+  historicOfCancer String @db.VarChar(255)
+  historicOfDiabetes String @db.VarChar(255)
+  historicOfObesity String @db.VarChar(255)
+  unimedCard String @db.VarChar(255)
+}
+
+model address {
+  id String @id @db.Uuid
+  city String @db.VarChar(255)
+  state String @db.VarChar(255)
+  patientId String @db.Uuid
 }
