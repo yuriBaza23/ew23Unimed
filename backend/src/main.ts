@@ -1,21 +1,23 @@
 import express from 'express';
-import bodyParser from 'body-parser';
 import { route } from './routes';
-import cors from 'cors'
+import bodyParser from 'body-parser'
+import { PrismaClient } from '@prisma/client';
+import config from './config/config';
+
+require('dotenv').config({ path: '.env'});
 
 const prisma = new PrismaClient();
 prisma.$connect()
 
+//criando backend através do express
 const app = express();
 
 app.use(bodyParser.json())
+//backend usa rota raiz
+app.use('/', route);
 
-app.use(cors(config.cors))
-
-app.use('/', route)
-
-app.options('*', cors(config.cors))
-
+//executa o backend na porta mencionada e após, executa a função callback
 app.listen(Number(config.api.port), () => {
-  console.log('🚀 Backend Rodando...')
+    console.log('Rodando tá!!!')
+
 })
